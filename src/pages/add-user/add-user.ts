@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../services/user/user.services';
+import { ToastService } from '../../services/toast/toast.service';
 import { User } from '../../models/user/user.model';
 
 
@@ -18,7 +19,7 @@ export class AddUserPage {
     dateupdated: undefined
   };
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userservice: UserService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userservice: UserService, private toast: ToastService) {
   }
 
   ionViewDidLoad() {
@@ -28,6 +29,7 @@ export class AddUserPage {
   addUser(user: User) {
     this.userservice.addUser(user)
       .then(ref => {
+        this.toast.show(`${user.username} added!`)
         this.navCtrl.setRoot('UsersPage', {key: ref.key})
       });
   }
