@@ -1,0 +1,30 @@
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>Add User</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
+   
+  <ion-content padding>
+ 
+    <ion-item>
+      <ion-label>User Name</ion-label>
+      <ion-input [(ngModel)]="user.username" placeholder="UserName"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+        <ion-label>First Name</ion-label>
+        <ion-input [(ngModel)]="user.firstname" type="string" placeholder="First Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+        <ion-label>Last Name</ion-label>
+        <ion-input [(ngModel)]="user.lastname" type="string" placeholder="Last Name"></ion-input>
+    </ion-item>
+  
+   
+    <button ion-button block clear (click)="addUser(user)">Add</button>
+  
+  </ion-content>
+

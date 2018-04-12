@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>
+        Users
+      </ion-title>
+      <ion-buttons end>
+        <button navPush="AddUserPage" ion-button>
+          <ion-icon name="add"></ion-icon>
+        </button>
+        <button navPush="HomePage" ion-button>
+            <ion-icon name="home"></ion-icon>
+          </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content padding>
+    <ion-list>
+      <ion-list-header>
+        Equipment
+      </ion-list-header>
+      <ion-item *ngFor="let user of userList$ | async" detail-push navPush="EditUserPage" [navParams]="{user: user}">
+        {{user.username}}
+      </ion-item>
+    </ion-list>
+  </ion-content>
+  
+
